@@ -42,21 +42,61 @@ void lockpick()
 }
 void rockmine() {
 	int stamina = 5;
-	while (stamina > 0) {
-		int success = rand() % 5;
-		if (success == 0)
-			std::cout << "You obtain nothing" << std::endl;
-		else
-			if (success == 4)
-				std::cout << "You obtain 2 chunks of wyvern obsidian" << std::endl;
-			else
-				std::cout << "You obtain a chunk of wyvern obsidian" << std::endl;
-		stamina = stamina - 1;
+	int gathering;
+	int perception;
+	std::cout << "Whats your gathering stat?" << std::endl;
+	std::cin >> gathering;
+	std::cout << "Whats your perception stat?" << std::endl;
+	std::cin >> perception;
+	int gatherstat = gathering * 3;
+	int perceptionstat = perception * 3;
+	if (perceptionstat > 60)
+		perceptionstat = 60;
+	int minetime;
+	int restcharges = 3;
+	int gold = 0;
+	while (stamina > 0) 
+	{
 
+		std::cout << "Mine(1) or rest(2)? Rests remaining: " << restcharges << " Stamina left: " << stamina << std::endl;
+		std::cin >> minetime;
+		if (minetime == 1) {
+			int success = rand() % 99;
+			if (success > gatherstat)
+				std::cout << "You obtain nothing" << std::endl;
+			else
+				if (success <= perceptionstat) {
+					std::cout << "You obtain 2 chunks of gold" << std::endl;
+					gold = gold + 2;
+				}
+				else {
+					std::cout << "You obtain a chunk of gold" << std::endl;
+					gold++;
+				}
+			if (success <= perceptionstat / 2) {
+				std::cout << "You obtain a rest charge" << std::endl;
+				restcharges++;
+			}
+			stamina = stamina - 1;
+			
+		}
+		else if (minetime == 2) {
+			std::cout << "You rest and regain some stamina" << std::endl;
+			stamina = stamina + rand() % 4 + 1;
+			restcharges--;
+
+
+
+
+		}
+		
+	
 
 
 
 	}
+	std::cout << "You mined " << gold << " gold!" << std::endl;
+
 }
 void attacksim() {
 	for (int turncount = 0; turncount <= 5; turncount++) {
@@ -93,12 +133,17 @@ int main()
 			std::cout << "That is an invalid game" << std::endl;
 		std::cout << "Play another game? 1 for y or 2 for n" << std::endl;
 		std::cin >> keepplaying;
-	if (keepplaying == 1)
-		std::cout << "OK" << std::endl;
-	else if (keepplaying == 2) {
-		std::cout << "OK, have a nice day" << std::endl;
-		playing = false;
+		if (keepplaying == 1) {
+			std::cout << "OK" << std::endl;
+			game = 0;
 		}
+		else if (keepplaying == 2) {
+			std::cout << "OK, have a nice day" << std::endl;
+			playing = false;
+		}
+		else
+			break;
+		
 		
 	}
 
