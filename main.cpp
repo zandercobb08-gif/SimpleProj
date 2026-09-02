@@ -5,155 +5,187 @@ std::string password;
 std::string username;
 float HP;
 float heat;
+int weapon;
+enum weapons {
+	Sword,
+	Greatsword,
+	Spear,
+	Club,
+	Axe
+};
 
-
-void lockpick() 
-{
-	int guess;
-	int lock = rand() % 99;
-	bool open = false;
-	int guesses = 0;
-
-	bool unsolved = true;
-	while (!open) {
-		std::cout << "What is the keypad code? (Pick a number 1-100)" << std::endl;
-		std::cin >> guess;
-		if (guess == lock)
-			open = true;
-		else if (guess > lock)
-			std::cout << "Too high" << std::endl;
-		else if (guess < lock)
-			std::cout << "Too low" << std::endl;
-		else
-			std::cout << "Something did not work correctly, go find out what" << std::endl;
-
-
-
-	}
-
-	while (open && unsolved) {
-		unsolved = false;
-		std::cout << "You got the right code" << std::endl;
-	}
-
-
-
-
-}
-void rockmine() {
-	int stamina = 5;
-	int gathering;
-	int perception;
-	std::cout << "Whats your gathering stat?" << std::endl;
-	std::cin >> gathering;
-	std::cout << "Whats your perception stat?" << std::endl;
-	std::cin >> perception;
-	int gatherstat = gathering * 3;
-	int perceptionstat = perception * 3;
-	if (perceptionstat > 60)
-		perceptionstat = 60;
-	int minetime;
-	int restcharges = 3;
-	int gold = 0;
-	while (stamina > 0) 
-	{
-
-		std::cout << "Mine(1) or rest(2)? Rests remaining: " << restcharges << " Stamina left: " << stamina << std::endl;
-		std::cin >> minetime;
-		if (minetime == 1) {
-			int success = rand() % 99;
-			if (success > gatherstat)
-				std::cout << "You obtain nothing" << std::endl;
-			else
-				if (success <= perceptionstat) {
-					std::cout << "You obtain 2 chunks of gold" << std::endl;
-					gold = gold + 2;
-				}
-				else {
-					std::cout << "You obtain a chunk of gold" << std::endl;
-					gold++;
-				}
-			if (success <= perceptionstat / 2) {
-				std::cout << "You obtain a rest charge" << std::endl;
-				restcharges++;
-			}
-			stamina = stamina - 1;
-			
-		}
-		else if (minetime == 2) {
-			std::cout << "You rest and regain some stamina" << std::endl;
-			stamina = stamina + rand() % 4 + 1;
-			restcharges--;
-
-
-
-
-		}
-		
-	
-
-
-
-	}
-	std::cout << "You mined " << gold << " gold!" << std::endl;
-
-}
-void attacksim() {
-	for (int turncount = 0; turncount <= 5; turncount++) {
-		int crit = rand() % 5;
-		if (crit == 1)
-			std::cout << "You attacked! It was a Crit!" << std::endl;
-		else
-			std::cout << "You attacked!" << std::endl;
-
-
-
-
-	}
-}
+//void lockpick() 
+//{
+//	int guess;
+//	int lock = rand() % 99;
+//	bool open = false;
+//	int guesses = 0;
+//
+//	bool unsolved = true;
+//	while (!open) {
+//		std::cout << "What is the keypad code? (Pick a number 1-100)" << std::endl;
+//		std::cin >> guess;
+//		if (guess == lock)
+//			open = true;
+//		else if (guess > lock)
+//			std::cout << "Too high" << std::endl;
+//		else if (guess < lock)
+//			std::cout << "Too low" << std::endl;
+//		else
+//			std::cout << "Something did not work correctly, go find out what" << std::endl;
+//
+//
+//
+//	}
+//
+//	while (open && unsolved) {
+//		unsolved = false;
+//		std::cout << "You got the right code" << std::endl;
+//	}
+//
+//
+//
+//
+//}
+//void rockmine() {
+//	int stamina = 5;
+//	int gathering;
+//	int perception;
+//	std::cout << "Whats your gathering stat?" << std::endl;
+//	std::cin >> gathering;
+//	std::cout << "Whats your perception stat?" << std::endl;
+//	std::cin >> perception;
+//	int gatherstat = gathering * 3;
+//	int perceptionstat = perception * 3;
+//	if (perceptionstat > 60)
+//		perceptionstat = 60;
+//	int minetime;
+//	int restcharges = 3;
+//	int gold = 0;
+//	while (stamina > 0) 
+//	{
+//
+//		std::cout << "Mine(1) or rest(2)? Rests remaining: " << restcharges << " Stamina left: " << stamina << std::endl;
+//		std::cin >> minetime;
+//		if (minetime == 1) {
+//			int success = rand() % 99;
+//			if (success > gatherstat)
+//				std::cout << "You obtain nothing" << std::endl;
+//			else
+//				if (success <= perceptionstat) {
+//					std::cout << "You obtain 2 chunks of gold" << std::endl;
+//					gold = gold + 2;
+//				}
+//				else {
+//					std::cout << "You obtain a chunk of gold" << std::endl;
+//					gold++;
+//				}
+//			if (success <= perceptionstat / 2) {
+//				std::cout << "You obtain a rest charge" << std::endl;
+//				restcharges++;
+//			}
+//			stamina = stamina - 1;
+//			
+//		}
+//		else if (minetime == 2) {
+//			std::cout << "You rest and regain some stamina" << std::endl;
+//			stamina = stamina + rand() % 4 + 1;
+//			restcharges--;
+//
+//
+//
+//
+//		}
+//		
+//	
+//
+//
+//
+//	}
+//	std::cout << "You mined " << gold << " gold!" << std::endl;
+//
+//}
+//void attacksim() {
+//	for (int turncount = 0; turncount <= 5; turncount++) {
+//		int crit = rand() % 5;
+//		if (crit == 1)
+//			std::cout << "You attacked! It was a Crit!" << std::endl;
+//		else
+//			std::cout << "You attacked!" << std::endl;
+//
+//
+//
+//
+//	}
+//}
 int main()
 {
-	bool playing = true;
-	int keepplaying;
-	while (playing) 
-	{
-		int game;
-		std::cout << "Choose which program to run" << std::endl;
-		std::cout << "press 1 to play the attack simulator" << std::endl;
-		std::cout << "press 2 to play the mining simulator" << std::endl;
-		std::cout << "press 3 to play the lockpicking game" << std::endl;
-		std::cin >> game;
-		if (game == 1)
-			attacksim();
-		else if (game == 2)
-			rockmine();
-		else if (game == 3)
-			lockpick();
-		else
-			std::cout << "That is an invalid game" << std::endl;
-		std::cout << "Play another game? 1 for y or 2 for n" << std::endl;
-		std::cin >> keepplaying;
-		if (keepplaying == 1) {
-			std::cout << "OK" << std::endl;
-			game = 0;
-		}
-		else if (keepplaying == 2) {
-			std::cout << "OK, have a nice day" << std::endl;
-			playing = false;
-		}
-		else
-			break;
-		
-		
-	}
+	//bool playing = true;
+	//int keepplaying;
+	//while (playing) 
+	//{
+	//	int game;
+	//	std::cout << "Choose which program to run" << std::endl;
+	//	std::cout << "press 1 to play the attack simulator" << std::endl;
+	//	std::cout << "press 2 to play the mining simulator" << std::endl;
+	//	std::cout << "press 3 to play the lockpicking game" << std::endl;
+	//	std::cin >> game;
+	//	if (game == 1)
+	//		attacksim();
+	//	else if (game == 2)
+	//		rockmine();
+	//	else if (game == 3)
+	//		lockpick();
+	//	else
+	//		std::cout << "That is an invalid game" << std::endl;
+	//	std::cout << "Play another game? 1 for y or 2 for n" << std::endl;
+	//	std::cin >> keepplaying;
+	//	if (keepplaying == 1) {
+	//		std::cout << "OK" << std::endl;
+	//		game = 0;
+	//	}
+	//	else if (keepplaying == 2) {
+	//		std::cout << "OK, have a nice day" << std::endl;
+	//		playing = false;
+	//	}
+	//	else
+	//		break;
+	//	
+	//	
+	//}
 
+	//return 0;
+
+
+	weapons chosenweapon = Sword;
 	return 0;
-
-
 }
 
 
+void weapon_selection(weapons weapon) {
 
+
+	switch (weapon)
+	{
+	case Sword:
+		std::cout << "It deals 8 damage" << std::endl;
+		break;
+	case Greatsword:
+		std::cout << "It deals 12 damage" << std::endl;
+		break;
+	case Spear:
+		std::cout << "It deals 10 damage" << std::endl;
+		break;
+	case Club:
+		std::cout << "It deals 15 damage" << std::endl;
+		break;
+	case Axe:
+		std::cout << "It deals 5 damage" << std::endl;
+		break;
+	default:
+		break;
+	}
+}
 
 
 
