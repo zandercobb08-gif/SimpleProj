@@ -1,19 +1,67 @@
 #include <iostream>
 #include <cstdlib>
+
+using namespace std;
+
 int grade;
 std::string password;
 std::string username;
 float HP;
 float heat;
 int weapon;
-enum weapons {
-	Sword,
-	Greatsword,
-	Spear,
-	GreatClub,
-	Dagger
+enum itemrarity {
+	COMMON,
+	UNCOMMON,
+	RARE,
+	EPIC,
+	LEGENDARY
 };
+std::string getrarity(itemrarity rarity) {
+	string readrare;
+	switch (rarity) {
+	case COMMON:
+		readrare = "Common";
+		break;
+	case UNCOMMON:
+		readrare = "Uncommon";
+		break;
+	case RARE:
+		readrare = "Rare";
+		break;
+	case EPIC:
+		readrare = "Epic";
+		break;
+	case LEGENDARY:
+		readrare = "Legendary";
+		break;
 
+	}
+	cout << readrare << endl;
+	return readrare;
+}
+int getprice(itemrarity rarity) {
+	int cost;
+	switch (rarity) {
+	case COMMON:
+		cost = 10;
+		break;
+	case UNCOMMON:
+		cost = 50;
+		break;
+	case RARE:
+		cost = 200;
+		break;
+	case EPIC:
+		cost = 1000;
+		break;
+	case LEGENDARY:
+		cost = 5000;
+		break;
+
+	}
+	return cost;
+	
+}
 //void lockpick() 
 //{
 //	int guess;
@@ -118,6 +166,7 @@ enum weapons {
 //
 //	}
 //}
+
 int main()
 {
 	//bool playing = true;
@@ -153,39 +202,68 @@ int main()
 	//	
 	//	
 	//}
-
-	//return 0;
-
-
-	weapons chosenweapon = Sword;
+	int rare;
+	string rarity;
+	int price;
+	cout << "Choose a rarity" << endl;
+	cout << "Common = 0" << endl;
+	cout << "Uncommon = 1" << endl;
+	cout << "Rare = 2" << endl;
+	cout << "Epic = 3" << endl;
+	cout << "Legendary = 4" << endl;
+	cin >> rare;
+	if (rare == 0){
+		rarity = getrarity(COMMON);
+		price = getprice(COMMON);
+	}
+	else if (rare == 1) {
+		rarity = getrarity(UNCOMMON);
+		price = getprice(UNCOMMON);
+	}
+	else if (rare == 2) {
+		rarity = getrarity(RARE);
+		price = getprice(RARE);
+	}
+	else if (rare == 3) {
+		rarity = getrarity(EPIC);
+		price = getprice(EPIC);
+	}
+	else if (rare == 4) {
+		rarity = getrarity(LEGENDARY);
+		price = getprice(LEGENDARY);
+		
+}
+	int sell = price/2;
+	cout << "A " << rarity << " rarity item will cost " << price << " gold." << endl;
+	cout << "If you have an item of said rarity, we will buy it off of you for " << sell << " gold" << endl;
 	return 0;
 }
 
 
-void weapon_selection(weapons weapon) {
-
-
-	switch (weapon)
-	{
-	case Sword:
-		std::cout << "It deals 8 damage" << std::endl;
-		break;
-	case Greatsword:
-		std::cout << "It deals 12 damage" << std::endl;
-		break;
-	case Spear:
-		std::cout << "It deals 10 damage" << std::endl;
-		break;
-	case GreatClub:
-		std::cout << "It deals 15 damage" << std::endl;
-		break;
-	case Dagger:
-		std::cout << "It deals 5 damage" << std::endl;
-		break;
-	default:
-		break;
-	}
-}
+//void weapon_selection(weapons weapon) {
+//
+//
+//	switch (weapon)
+//	{
+//	case Sword:
+//		std::cout << "It deals 8 damage" << std::endl;
+//		break;
+//	case Greatsword:
+//		std::cout << "It deals 12 damage" << std::endl;
+//		break;
+//	case Spear:
+//		std::cout << "It deals 10 damage" << std::endl;
+//		break;
+//	case GreatClub:
+//		std::cout << "It deals 15 damage" << std::endl;
+//		break;
+//	case Dagger:
+//		std::cout << "It deals 5 damage" << std::endl;
+//		break;
+//	default:
+//		break;
+//	}
+//}
 
 
 
