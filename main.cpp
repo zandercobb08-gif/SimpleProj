@@ -10,8 +10,8 @@ enum weapons {
 	Sword,
 	Greatsword,
 	Spear,
-	Club,
-	Axe
+	GreatClub,
+	Dagger
 };
 
 //void lockpick() 
@@ -176,10 +176,10 @@ void weapon_selection(weapons weapon) {
 	case Spear:
 		std::cout << "It deals 10 damage" << std::endl;
 		break;
-	case Club:
+	case GreatClub:
 		std::cout << "It deals 15 damage" << std::endl;
 		break;
-	case Axe:
+	case Dagger:
 		std::cout << "It deals 5 damage" << std::endl;
 		break;
 	default:
