@@ -2,8 +2,8 @@
 #include <cstdlib>
 using namespace std;
 enum enemy{GOBLIN, SKELETON, DEMON};
-int active = GOBLIN;
 enum weapon { CLUB, DAGGER, SWORD, PIKE};
+int active;
 
 bool daggerskill = false;
 int daggercooldown = 0;
@@ -103,7 +103,7 @@ int main()
 	player hero;
 	hero.getname();
 	if (hero.name == "Siffrid") {
-		difmult = 1.5;
+		difmult = 1.2;
 	}
 	cout << "how many monsters stand in your way?" << endl;
 	cin >> logicenemy;
@@ -507,6 +507,7 @@ int main()
 					cout << "The demon turns to dust!" << endl;
 					hero.potions += 2;
 					hero.currentweapon = PIKE;
+					pikeskill = true;
 					cout << "You gain a pike!" << endl;
 					cout << "You also gained 3 potions" << endl;
 					daggercooldown--;
