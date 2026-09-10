@@ -16,3 +16,19 @@ void main() {
 	cout << playername.length() << endl;
 	cout << playername[0] << endl;
 }
+int getlength(string word) {
+	int length = word.length();
+	return length;
+}
+bool areequal(string word1, string word2) {
+	if (word1 == word2) {
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+string tolower() {
+
+}
