@@ -126,6 +126,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NewThing.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="enemy.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="Utilities.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
