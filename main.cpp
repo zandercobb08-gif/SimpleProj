@@ -81,23 +81,23 @@ int main()
 				switch (choice) {
 				case 1:
 					hp = hp - herodamage * damagemult;
-					cout << "You dealt " << herodamage * damagemult << " damage!" << endl;
+					cout << hero.name <<" dealt " << herodamage * damagemult << " damage!" << endl;
 					break;
 				case 2:
 					defending = true;
-					cout << "You defended! You will take less damage this turn." << endl;
+					cout << hero.name << " defended!" << hero.name << " will take less damage this turn." << endl;
 					break;
 				case 3:
 					heal = rand() % 15 + 20;
 					hero.hp += heal;
-					cout << "You healed " << heal << " health!" << endl;
+					cout << hero.name << " healed " << heal << " health!" << endl;
 					if (hero.hp > 100)
 						hero.hp = 100;
 					hero.potions -= 1;
 					break;
 				case 4:
 					if (daggerskill && daggercooldown <= 0) {
-						cout << "You summon a swarm of blades!" << endl;
+						cout << hero.name << " summons a swarm of blades!" << endl;
 						blades = rand() % 4 + 1;
 						cout << blades << " blades fly at your target!" << endl;
 						while (blades > 0) {
@@ -110,7 +110,7 @@ int main()
 					break;
 				case 5:
 					if (swordskill && swordcooldown <= 0) {
-						cout << "Fury flows through you!" << endl;
+						cout << "Fury flows through "<< hero.name << "!" << endl;
 						rage = true;
 						ragetimer = 2;
 						swordcooldown = 5;
@@ -136,8 +136,8 @@ int main()
 						hero.currentweapon = DAGGER;
 					daggerskill = true;
 					hero.potions += 1;
-					cout << "You gained a dagger!" << endl;
-					cout << "You also gained 1 potions" << endl;
+					cout << hero.name << " gained a dagger!" << endl;
+					cout << hero.name << " also gained 1 potion" << endl;
 					daggercooldown--;
 					swordcooldown--;
 					pikecooldown--;
@@ -152,11 +152,11 @@ int main()
 					cout << "The goblin attacked" << endl;
 					if (!defending) {
 						hero.hp -= damage;
-						cout << "you take " << damage << " damage!" << endl;
+						cout << hero.name << " take's " << damage << " damage!" << endl;
 					}
 					else if (defending) {
 						hero.hp -= damage / 2;
-						cout << "you take " << damage / 2 << " damage!" << endl;
+						cout << hero.name << " take's " << damage / 2 << " damage!" << endl;
 					}
 					daggercooldown--;
 					swordcooldown--;
@@ -223,23 +223,23 @@ int main()
 				switch (choice) {
 				case 1:
 					hp = hp - herodamage * damagemult;
-					cout << "You dealt " << herodamage * damagemult << " damage!" << endl;
+					cout << hero.name << " dealt " << herodamage * damagemult << " damage!" << endl;
 					break;
 				case 2:
 					defending = true;
-					cout << "You defended! You will take less damage this turn." << endl;
+					cout << hero.name << " defended!"<< hero.name << " will take less damage this turn." << endl;
 					break;
 				case 3:
 					heal = rand() % 15 + 20;
 					hero.hp += heal;
-					cout << "You healed " << heal << " health!" << endl;
+					cout << hero.name << " healed " << heal << " health!" << endl;
 					if (hero.hp > 100)
 						hero.hp = 100;
 					hero.potions -= 1;
 					break;
 				case 4:
 					if (daggerskill && daggercooldown <= 0) {
-						cout << "You summon a swarm of blades!" << endl;
+						cout << hero.name << " summon's a swarm of blades!" << endl;
 						blades = rand() % 4 + 1;
 						cout << blades << " blades fly at your target!" << endl;
 						while (blades > 0) {
@@ -252,7 +252,7 @@ int main()
 					break;
 				case 5:
 					if (swordskill && swordcooldown <= 0) {
-						cout << "Fury flows through you!" << endl;
+						cout << "Fury flows through "<< hero.name << "!" << endl;
 						rage = true;
 						ragetimer = 2;
 						swordcooldown = 5;
@@ -280,8 +280,8 @@ int main()
 						hero.currentweapon = SWORD;
 					swordskill = true;
 					hero.potions += 2;
-					cout << "You gained a sword!" << endl;
-					cout << "You also gained 2 potions" << endl;
+					cout << hero.name << " gained a sword!" << endl;
+					cout << hero.name << " also gained 2 potions" << endl;
 					daggercooldown--;
 					swordcooldown--;
 					pikecooldown--;
@@ -294,11 +294,11 @@ int main()
 					cout << "The skeleton attacked" << endl;
 					if (!defending) {
 						hero.hp -= damage;
-						cout << "you take " << damage << " damage!" << endl;
+						cout << hero.name << " take's " << damage << " damage!" << endl;
 					}
 					else if (defending) {
 						hero.hp -= damage / 2;
-						cout << "you take " << damage / 2 << " damage!" << endl;
+						cout << hero.name << "take's " << damage / 2 << " damage!" << endl;
 					}
 					daggercooldown--;
 					swordcooldown--;
@@ -364,23 +364,23 @@ int main()
 				switch (choice) {
 				case 1:
 					hp = hp - herodamage * damagemult;
-					cout << "You dealt " << herodamage * damagemult << " damage!" << endl;
+					cout << hero.name << " dealt " << herodamage * damagemult << " damage!" << endl;
 					break;
 				case 2:
 					defending = true;
-					cout << "You defended! You will take less damage this turn." << endl;
+					cout << hero.name << " defended! " << hero.name << " will take less damage this turn." << endl;
 					break;
 				case 3:
 					heal = rand() % 15 + 20;
 					hero.hp += heal;
-					cout << "You healed " << heal << " health!" << endl;
+					cout << hero.name << " healed " << heal << " health!" << endl;
 					if (hero.hp > 100)
 						hero.hp = 100;
 					hero.potions -= 1;
 					break;
 				case 4:
 					if (daggerskill && daggercooldown <= 0) {
-						cout << "You summon a swarm of blades!" << endl;
+						cout << hero.name << " 'summon's a swarm of blades!" << endl;
 						blades = rand() % 4 + 1;
 						cout << blades << " blades fly at your target!" << endl;
 						while (blades > 0) {
@@ -393,7 +393,7 @@ int main()
 					break;
 				case 5:
 					if (swordskill && swordcooldown <= 0) {
-						cout << "Fury flows through you!" << endl;
+						cout << "Fury flows through " << hero.name << "!" << endl;
 						rage = true;
 						ragetimer = 2;
 						swordcooldown = 5;
@@ -418,8 +418,8 @@ int main()
 					hero.potions += 2;
 					hero.currentweapon = PIKE;
 					pikeskill = true;
-					cout << "You gain a pike!" << endl;
-					cout << "You also gained 3 potions" << endl;
+					cout << hero.name << " gain's a pike!" << endl;
+					cout << hero.name << " also gained 3 potions" << endl;
 					daggercooldown--;
 					swordcooldown--;
 					pikecooldown--;
@@ -433,11 +433,11 @@ int main()
 					cout << "The demon attacked" << endl;
 					if (!defending) {
 						hero.hp -= damage;
-						cout << "you take " << damage << " damage!" << endl;
+						cout << hero.name << " take's " << damage << " damage!" << endl;
 					}
 					else if (defending) {
 						hero.hp -= damage / 2;
-						cout << "you take " << damage / 2 << " damage!" << endl;
+						cout << hero.name << " take's " << damage / 2 << " damage!" << endl;
 					}
 					daggercooldown--;
 					swordcooldown--;
@@ -464,6 +464,6 @@ int main()
 
 	}
 	else
-		cout << "You managed to escape! You had " << hero.hp << " health left! Congrats!" << endl;
+		cout << hero.name << " managed to escape! They had " << hero.hp << " health left! Congrats!" << endl;
 
 }
