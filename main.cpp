@@ -238,8 +238,14 @@ int main()
 						cout << "On cooldown for " << swordcooldown << " more turns" << endl;
 					}
 				}
-				cout << "To skip your turn, press anything else." << endl;
 				cin >> choice;
+				if (std::cin.fail())
+				{
+					std::cout << "That's not a valid option, forcing defend." << std::endl;
+					std::cin.clear();    // clear the error
+					std::cin.ignore();    // empty cin (so we forget about the bad input)
+					choice = 2;
+				}
 				switch (choice) {
 				case 1:
 					hp = hp - herodamage * damagemult;
@@ -286,6 +292,11 @@ int main()
 						stun = true;
 						pikecooldown = 5;
 					}
+					break;
+				default:
+					cout << "Invalid input. Forcing Defend." << endl;
+					defending = true;
+					cout << hero.name << " defended!" << hero.name << " will take less damage this turn." << endl;
 					break;
 
 
@@ -382,6 +393,13 @@ int main()
 				}
 				cout << "To skip your turn, press anything else." << endl;
 				cin >> choice;
+				if (std::cin.fail())
+				{
+					std::cout << "That's not a valid option, forcing defend." << std::endl;
+					std::cin.clear();    // clear the error
+					std::cin.ignore();    // empty cin (so we forget about the bad input)
+					choice = 2;
+				}
 				switch (choice) {
 				case 1:
 					hp = hp - herodamage * damagemult;
@@ -429,6 +447,12 @@ int main()
 						pikecooldown = 5;
 					}
 					break;
+				default:
+					cout << "Invalid input. Forcing Defend." << endl;
+					defending = true;
+					cout << hero.name << " defended!" << hero.name << " will take less damage this turn." << endl;
+					break;
+
 
 				}
 
