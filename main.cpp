@@ -29,7 +29,6 @@ int main()
 	spacing();
 	while (cycles < 3) {
 		active = rand() % 3;
-		cout << active << endl;
 		if (active == GOBLIN) {
 			opponent goblin;
 			int damage = goblin.getenemydamage();
