@@ -15,10 +15,17 @@ int main()
 	if (hero.name == "Siffrid") {
 		difmult = 1.2;
 	}
+
 	cout << "how many monsters stand in your way?" << endl;
 	cin >> logicenemy;
+	if (std::cin.fail())
+	{
+		std::cout << "That's not a valid number, setting to 3." << std::endl;
+		std::cin.clear();    // clear the error
+		std::cin.ignore();    // empty cin (so we forget about the bad input)
+		logicenemy = 3;
+	}
 	cycles = 3 - logicenemy;
-
 	spacing();
 	while (cycles < 3) {
 		active = rand() % 3;
@@ -77,6 +84,7 @@ int main()
 						cout << "On cooldown for " << swordcooldown << " more turns" << endl;
 					}
 				}
+				cout << "To skip your turn, press anything else." << endl;
 				cin >> choice;
 				switch (choice) {
 				case 1:
@@ -219,6 +227,7 @@ int main()
 						cout << "On cooldown for " << swordcooldown << " more turns" << endl;
 					}
 				}
+				cout << "To skip your turn, press anything else." << endl;
 				cin >> choice;
 				switch (choice) {
 				case 1:
@@ -360,6 +369,7 @@ int main()
 						cout << "On cooldown for " << swordcooldown << " more turns" << endl;
 					}
 				}
+				cout << "To skip your turn, press anything else." << endl;
 				cin >> choice;
 				switch (choice) {
 				case 1:
