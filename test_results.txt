@@ -24,3 +24,42 @@ Game won
 Game end
 Game opened
 Setup logic complete
+Game opened
+Setup logic complete
+Game won
+Game end
+Game opened
+Game opened
+Game opened
+Setup logic complete
+Game won
+Game end
+Game opened
+Game opened
+Setup logic complete
+Game lost
+Game end
+Game opened
+Setup logic complete
+Game won
+Game end
+Game opened
+Setup logic complete
+Game won
+Game end
+Game opened
+Game opened
+Setup logic complete
+Game won
+Game end
+Game opened
+Setup logic complete
+Game won
+Game end
+Game opened
+Game opened
+Setup logic complete
+Game won
+Game end
+Game opened
+Game opened

@@ -32,5 +32,8 @@
     <ClInclude Include="enemy.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Filefuncs.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
