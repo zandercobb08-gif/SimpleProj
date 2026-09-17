@@ -1,21 +1,91 @@
+#include <fstream>
 #include <iostream>
 #include <cstdlib>
 #include "Utilities.h"
 #include "player.h"
 #include "enemy.h"
+
+void writetofile(string event) {
+	ofstream logfile("test_results.txt");
+	if (logfile.is_open()) {
+		logfile << event << endl;
+	}
+	logfile.close();
+}
+void appendtolog(string event) {
+	ofstream logfile("test_results.txt", ios::app);
+	if (logfile.is_open()) {
+		logfile << event << endl;
+		logfile.close();
+	}
+}
+bool fileexists(string filename) {
+	ifstream file(filename);
+	return file.is_open();
+}
+void fileop(string log) {
+	if (fileexists("test_results.txt")) {
+		appendtolog(log);
+	}
+	else
+		writetofile(log);
+}
+void firsthighscore(int event) {
+	ofstream logfile("highscore.txt");
+	if (logfile.is_open()) {
+		logfile << event << endl;
+	}
+	logfile.close();
+}
+void newhighscore(int event) {
+	ifstream datafile("highscore");
+	int highscore = 0;
+	if (datafile.is_open()) {
+		datafile >> highscore;
+		datafile.close();
+	}
+	ofstream logfile("highscore.txt");
+	if (logfile.is_open()) {
+		if (event > highscore) {
+			logfile << event << endl;
+		}
+		logfile.close();
+	}
+}
+void highscorefile(int score) {
+	if (fileexists("highscore.txt")) {
+		newhighscore(score);
+	}
+	else
+		firsthighscore(score);
+}
+int printhighscore() {
+	ifstream datafile("highscore");
+	int highscore = 0;
+	if (datafile.is_open()) {
+		datafile >> highscore;
+		cout << "Your highscore: " << highscore << endl;
+		datafile.close();
+	}
+	return highscore;
+}
 int main()
 {
+	
+	fileop("Game opened");
 	srand(time(NULL));
 	int cycles = 0;
 	int ragetimer = 0;
 	int logicenemy;
+	int highscore = 0;
 	bool lose = false;
 	player hero;
 	hero.getname();
 	if (hero.name == "Siffrid") {
 		difmult = 1.2;
 	}
-
+	highscore = printhighscore();
+	cout << "Your highscore: " << highscore << endl;
 	cout << "how many monsters stand in your way?" << endl;
 	cin >> logicenemy;
 	if (std::cin.fail() || logicenemy <= 0)
@@ -26,6 +96,7 @@ int main()
 		logicenemy = 3;
 	}
 	cycles = 3 - logicenemy;
+	fileop("Setup logic complete");
 	spacing();
 	while (cycles < 3) {
 		active = rand() % 3;
@@ -505,9 +576,12 @@ int main()
 	}
 	if (lose) {
 		cout << "You lost!" << endl;
-
+		fileop("Game lost");
 	}
-	else
+	else {
 		cout << hero.name << " managed to escape! They had " << hero.hp << " health left! Congrats!" << endl;
-
+		fileop("Game won");
+		highscorefile(logicenemy);
+	}
+	fileop("Game end");
 }
