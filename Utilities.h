@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include "Stringutils.h"
 
 using namespace std;
 enum enemy { GOBLIN, SKELETON, DEMON };
@@ -16,8 +16,3 @@ int pikecooldown = 0;
 float difmult = 1;
 bool stun = false;
 
-void spacing() {
-	cout << "  " << endl;
-	cout << "  " << endl;
-	cout << "  " << endl;
-}

@@ -130,6 +130,7 @@
     <ClInclude Include="enemy.h" />
     <ClInclude Include="Filefuncs.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="Stringutils.h" />
     <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
