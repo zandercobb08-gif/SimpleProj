@@ -10,7 +10,7 @@
 
 int main()
 {
-	
+
 	fileop("Game opened");
 	srand(time(NULL));
 	int cycles = 0;
