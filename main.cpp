@@ -8,7 +8,11 @@
 
 
 void main() {
-	WriteToConsole("Hello World!");
+	string testword = "Happy Day";
+	testword = AssignmentOperator(testword, "Sad");
+	testword = Append(testword, "Day");
+	testword = Prepend(testword, "Super");
+	WriteToConsole(testword);
 }
 //int main()
 //{
