@@ -15,6 +15,13 @@ void appendtolog(string event) {
 		logfile.close();
 	}
 }
+void appendtolog(int event) {
+	ofstream logfile("test_results.txt", ios::app);
+	if (logfile.is_open()) {
+		logfile << event << endl;
+		logfile.close();
+	}
+}
 bool fileexists(string filename) {
 	ifstream file(filename);
 	return file.is_open();

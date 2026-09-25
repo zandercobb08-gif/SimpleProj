@@ -8,11 +8,36 @@
 
 
 void main() {
+	int amountsuccesful = 0;
 	string testword = "Happy Day";
 	testword = AssignmentOperator(testword, "Sad");
+	if (testword == "Sad"){
+		appendtolog("Success");
+		amountsuccesful += 1;
+
+	}
+	else
+		appendtolog("Fail");
 	testword = Append(testword, "Day");
+	if (testword == "SadDay") {
+		appendtolog("Success");
+		amountsuccesful += 1;
+	
+	}
+	else
+		appendtolog("Fail");
 	testword = Prepend(testword, "Super");
+	if (testword == "SuperSadDay"){
+		appendtolog("Success");
+		amountsuccesful += 1;
+
+	}
+	else
+		appendtolog("Fail");
 	WriteToConsole(testword);
+	appendtolog("Ammount that succeded:");
+	appendtolog(amountsuccesful);
+
 }
 //int main()
 //{
