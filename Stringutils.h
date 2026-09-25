@@ -6,20 +6,27 @@ void spacing() {
 	cout << "  " << endl;
 	cout << "  " << endl;
 }
-int Length() {
-	void;
+int Length(string word) {
+	int length = word.length();
+    return length;
 }
 char CharacterAt( int index, string word) {
-	void;
+    char desiredchar = '\0';
+    if (index != string::npos)
+        char desiredchar = word.find(index);
+    return desiredchar;
 }
-bool EqualTo(string str) {
-
+bool EqualTo(string str1, string str2 ) {
+    if (str1.length() == str2.length())
+        return true;
 }
-void Append(string str) {
-
+string Append(string str, string addition) {
+    str += addition;
+    return str;
 }
-void Prepend(string str) {
-
+string Prepend(string str, string addition) {
+    addition += str;
+    return addition;
 }
 
 
@@ -46,7 +53,7 @@ string ToUpper(string word) {
 
 int Find(string findString, string word) {
     size_t position = word.find(findString);
-    if (position != std::string::npos) {
+    if (position != string::npos) {
         return position;
     }
     else {
@@ -57,33 +64,38 @@ int Find(string findString, string word) {
 }
 
 
-void Replace(string word, string findString, string replaceString) {
+string Replace(string word, string findString, string replaceString) {
     size_t pos = Find(findString, word);
-    if (pos != std::string::npos) {
+    if (pos != string::npos) {
         word.replace(pos, findString.length(), replaceString);
     }
+    return word;
 }
 
-string ReadFromConsole() {
 
-}
 
 void WriteToConsole(string word) {
 	cout << word << endl;
 }
 
-bool EqualityOperator() {
-
+bool EqualityOperator(string word, string desiredword) {
+    if (word == desiredword)
+        return true;
 }
 
-char Subscriptoperator() {
-
+char Subscriptoperator(string word, int pos) {
+    char desiredchar = 'a';
+    if (pos != string::npos)
+        char desiredchar = word.find(pos);
+    return desiredchar;
 }
 
-void AssignmentOperator() {
-
+string AssignmentOperator(string word, string desiredword) {
+    word = desiredword;
+    return word;
 }
 
-bool LessThanOperator() {
-
+bool LessThanOperator(string word1, string word2) {
+    if (word1 < word2)
+        return true;
 }
