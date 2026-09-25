@@ -400,6 +400,14 @@ int main()
 						cout << "On cooldown for " << swordcooldown << " more turns" << endl;
 					}
 				}
+				if (pikeskill == true) {
+					if (pikecooldown <= 0) {
+						cout << "5. pike skill" << endl;
+					}
+					else {
+						cout << "On cooldown for " << pikecooldown << " more turns" << endl;
+					}
+				}
 				cout << "To skip your turn, press anything else." << endl;
 				cin >> choice;
 				if (std::cin.fail())
