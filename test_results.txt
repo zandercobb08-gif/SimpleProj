@@ -3,3 +3,4 @@ Success
 Success
 Ammount that succeded:
 3
+Game opened
